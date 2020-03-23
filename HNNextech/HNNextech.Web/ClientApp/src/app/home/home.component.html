@@ -1,0 +1,21 @@
+<h1 id="tableLabel">Newest Hacker News Stories</h1>
+
+<p *ngIf="!stories"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="stories">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Link</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let story of stories">
+      <td>{{ story.title }}</td>
+      <td>{{ story.by }}</td>      
+      <td *ngIf="story.url"><a href="{{ story.url }}">Go to story</a></td>
+      <td *ngIf="!story.url">This story doesn't have an link.</td>
+    </tr>
+  </tbody>
+</table>
